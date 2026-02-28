@@ -1,4 +1,4 @@
-/*  GOOGLE FONTS */
+/* GOOGLE FONTS */
 @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Inter:wght@400;600&family=Jost:wght@400;600&display=swap');
 
 /* RESET */
@@ -8,10 +8,10 @@
   box-sizing: border-box;
 }
 
-/* BODY*/
+/* BODY */
 body {
   font-family: 'Inter', sans-serif;
-  background-color: #f0f0f0;
+  background-color: #ffffff;
   min-height: 100vh;
 }
 
@@ -35,24 +35,22 @@ p {
   margin-bottom: 24px;
 }
 
-/* CARD */
-article.card {
-  background-color: #ffffff;
-  border-radius: 16px;
-  padding: 48px 40px;
-  width: 100%;
-  max-width: 440px;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
-  text-align: center;
-}
-
 /* PAGE WRAPPER */
 main.page-wrapper {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  padding: 20px;
+  padding: 40px 20px;
+}
+
+/* LIMIT WIDTH OF CONTENT */
+main.page-wrapper form,
+main.page-wrapper h1,
+main.page-wrapper p {
+  width: 100%;
+  max-width: 420px;
 }
 
 /* BUTTON */
