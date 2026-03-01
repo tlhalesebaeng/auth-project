@@ -4,7 +4,7 @@ const emailInput = document.getElementById("email");
 form.addEventListener("submit", function(callOfDuty){
 
     const email = emailInput.value.trim();
-    callOfDuty.preventDefault();/*here im preventing page from reloading in backgrounf*?/
+    callOfDuty.preventDefault();/*here im preventing page from reloading in backgrounf*/
     if(email === ""){
         return;
     }
