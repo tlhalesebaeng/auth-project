@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Register</title>
+
+        <link rel="stylesheet" href="../main/index.css" />
+        <link rel="stylesheet" href="register.css" />
+    </head>
+
+    <body>
+        <main class="wrapper">
+            <article>
+                <h1>Register</h1>
+                <p class="description">Create a new account to get started</p>
+                <form>
+
+                    <section id="input-group">
+                        <label for="firstName">FIRST NAME</label>
+                        <section class="input-wrapper">
+                            <img src="../assets/user.svg" alt="user-icon" class="left-icon"/>
+                            <input type = "text" id="firstName" name="firstName" placeholder="Please enter your first name" required/>
+
+                        </section>
+                    </section>
+
+                    <section id="input-group">
+                        <label for="lastName">LAST NAME</label>
+                        <section class="input-wrapper">
+                            <img src="../assets/user.svg" alt="user-icon" class="left-icon"/>
+                            <input type = "text" id="lastName" name="lastName" placeholder="Please enter your last name" required/>
+
+                        </section>
+                    </section>
+
+                    <section id="input-group">
+                        <label for="email">EMAIL</label>
+                        <section class="input-wrapper">
+                            <img src="../assets/email.svg" alt="email-icon" class="left-icon"/>
+                            <input type = "email" id="email" name="email" placeholder="Please enter your email address" required/>
+
+                        </section>
+                    </section>
+
+                    <section id="input-group">
+                        <label for="new-password">NEW PASSWORD</label>
+                        <section class="input-wrapper">
+                            <img src="../assets/lock.svg" alt="lock-icon" class="left-icon" />
+                            <input
+                                type="password"
+                                id="new-password"
+                                name="new-password"
+                                placeholder="Enter new password"
+                                required
+                            />
+                            <img src="../assets/eye-off.svg" alt="toggle-visibility" class="right-icon" />
+                        </section>
+                    </section>
+
+                    <section id="input-group">
+                        <label for="confirm-password">CONFIRM PASSWORD </label>
+                        <section class="input-wrapper">
+                            <img src="../assets/lock.svg" alt="lock-icon" class="left-icon" />
+                            <input
+                                class="input-error"
+                                type="password"
+                                id="confirm-password"
+                                name="confirm-password"
+                                placeholder="Confirm new password"
+                                required
+                            />
+                            <img src="../assets/eye.svg" alt="toggle-visibility" class="right-icon" />
+                        </section>
+                    </section>
+
+                    <p class="error-message">Please enter matching passwords.</p>
+                    <button type="submit">Register</button>
+                </form>
+                <p class="redirect-text">
+                    Already have an account?
+                    <a href="../landing/index.html">Log in</a>
+                </p>
+            </article>
+        </main>
+    </body>
+</html>
