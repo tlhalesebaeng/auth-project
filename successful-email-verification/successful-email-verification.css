@@ -1,0 +1,12 @@
+.wrapper article {
+    width: auto;
+}
+
+.wrapper article a {
+    color: #bb3399;
+    text-decoration-color: #bb3399;
+}
+
+p {
+    width: 420px;
+}
