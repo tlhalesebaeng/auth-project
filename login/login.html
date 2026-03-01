@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Login</title>
+        <link rel="stylesheet" href="../main/index.css" />
+        <link rel="stylesheet" href="reset-password.css" />
+    </head>
+    <body>
+        <main class="wrapper">
+            <article>
+                <h1>Login</h1>
+                <p class="description">
+                    Please fill in your details to access your account
+                <form>
+                    <section id="input-group">
+                        <label for="email">Email</label>
+                        <section class="input-wrapper">
+                            <img src="../assets/email.svg" alt="email-icon" class="left-icon" />
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder="Enter your email address"
+                                required
+                            />
+                        </section>
+                    </section>
+                    <section id="input-group">
+                        <label for="password">Password</label>
+                        <section class="input-wrapper">
+                            <img src="../assets/lock.svg" alt="lock-icon" class="left-icon" />
+                            <input
+                                class="input-error"
+                                type="text"
+                                id="password"
+                                name="password"
+                                placeholder="Enter your password"
+                                required
+                            />
+                            <img src="../assets/eye-off.svg" alt="toggle-visibility" class="right-icon" />
+                        </section>
+                    </section>
+                    <p class="error-message">Please enter the correct password.</p>
+                    <section class="form-footer">
+                        <label class="checkbox-wrapper">
+                            <input type="checkbox" id="remember-me">
+                            Remember me
+                        </label>
+                        <a href="../reset-password/reset-password.html" class="forgot-password">Forgot Password</a>
+                    </section>
+                    <button>Login</button>
+                    <p class="bottom-message">
+                        Do you have an account?
+                        <a href="register/" class="register-link">Register</a>
+                    </p>
+                </form>
+            </article>
+        </main>
+
+        <script src="login.js"></script>
+    </body>
+</html>

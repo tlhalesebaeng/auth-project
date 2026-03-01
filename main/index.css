@@ -164,3 +164,55 @@ input:focus {
     color: #e63946;
     text-align: left;
 }
+.checkbox-wrapper {
+    display: flex;           
+    align-items: center;     
+    gap: 6px;                
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: #ae3096;
+}
+.checkbox-wrapper label {
+    margin: 0;
+    cursor: pointer; 
+}
+.checkbox-wrapper input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    accent-color: #ae3096; 
+    cursor: pointer;
+}
+.forgot-password a {
+    color: #ae3096;        
+    text-decoration: none; 
+    font-size: 14px;
+}
+
+.forgot-password:link,
+.forgot-password:visited,
+.forgot-password:active,
+.forgot-password:hover {
+    color: #ae3096;         
+    text-decoration: underline;
+}
+
+.form-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 12px;
+    width: 100%;                  
+}
+/*THIS IS THE MESSAGE AT THE BOTTOM (DO YOU HAVE AN ACCOUNT)*/
+.bottom-message {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    text-align: center;
+    color: #1a1a1a;
+    margin-top: 4px;
+}
+.bottom-message .register-link {
+    color: #ae3096;       
+    text-decoration: underline; 
+    margin-left: 4px;      
+}
