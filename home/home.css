@@ -1,0 +1,27 @@
+h2 {
+    margin-bottom: 16px;
+    line-height: 28px;
+    display: flex;
+    align-items: center;
+    flex: 1;
+    font-size: 32px;
+    font-weight: 700;
+    color: #1a1a1a;
+    text-align: center;
+}
+
+article {
+    height: 350px; /* This should probably not be hard coded like this */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+button {
+    width: 50%;
+    background: none;
+    background-color: #ffffff;
+    color: #6e2287;
+    border: 1.5px solid #6e2287;
+    outline: none;
+}
