@@ -1,8 +1,8 @@
 import { navigate } from '../main/index.js';
 
-const RegisterButton = document.getElementById('RegisterButton');
+const registerButton = document.getElementById('register-btn');
 
-RegisterButton.addEventListener('click', (event) => {
+registerButton.addEventListener('click', (event) => {
     event.preventDefault(); 
     navigate('../verify-email/verify-email.html');
 });
