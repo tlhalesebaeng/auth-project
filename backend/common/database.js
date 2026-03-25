@@ -1,8 +1,11 @@
 const mongoose = require('mongoose');
 
+
 async function connectDatabase(){
     try{
-        await mongoose.connect("mongodb://localhost:27017/appDB");
+        const port = process.env.LOCAL_DB_PORT;
+        const url = `mongodb://localhost:${port}/appDB`;
+        await mongoose.connect(url);
 
         console.log("Database connected successfully");
     }catch(err){
