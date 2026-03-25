@@ -1,23 +1,15 @@
 const express = require('express');
 const cors = require('cors');
 const connectDatabase = require('./common/database');
+const Routes = require('./authorization/routes');
 
 const app = express();
+
 app.use(express.json());
 app.use(cors());
-
-
-
-
-connectDatabase()
-  .then(() => console.log("Database connected"))
-  .catch(err => console.error("Database connection failed", err));
-
-
-
-const User = require('./common/models/User')
-const Routes = require('./authorization/routes');
 app.use('/', Routes);
+
+connectDatabase();
 
 
 const PORT = 3000;
