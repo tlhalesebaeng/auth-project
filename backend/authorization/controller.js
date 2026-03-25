@@ -24,13 +24,7 @@ function isStrong(password){
         }
     }
 
-    if (!hasLowercase || !hasUppercase || !hasDigit || !HasSpecialSymbols){
-        return false;
-    }
-    
-    if (hasLowercase && hasUppercase && hasDigit && HasSpecialSymbols){
-        return true;
-    }
+    return hasLowercase && hasUppercase && hasDigit && HasSpecialSymbols;
     
     
 }
@@ -47,7 +41,7 @@ exports.doRegister = async (req,res) =>{
         const username = req.body.username;
         const password = req.body.password;
         const confirmPassword = req.body.confirmPassword;
-
+        const email = req.body.email;
         const userExists = await User.findOne({email :req.body.email});
         if (userExists){
             return res.status(409).json({error:"User Already Exists!"});

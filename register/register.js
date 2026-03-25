@@ -30,14 +30,7 @@ function isStrong(password){
         }
     }
 
-    if (!hasLowercase || !hasUppercase || !hasDigit || !HasSpecialSymbols){
-        return false;
-    }
-    
-    if (hasLowercase && hasUppercase && hasDigit && HasSpecialSymbols){
-        return true;
-    }
-    
+    return hasLowercase && hasUppercase && hasDigit && HasSpecialSymbols;
     
 }
 
