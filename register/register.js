@@ -9,6 +9,38 @@ import { navigate } from '../main/index.js';
 
 errorMessage.style.display = "none";
 
+function isStrong(password){
+    let hasLowercase = false;
+    let hasUppercase = false;
+    let hasDigit = false;
+    let SpecialSymbols = ['!','@','#','$','%','&','*'];
+    let HasSpecialSymbols = false;
+
+    for (let x of password){
+        if (x >= 'A' && x <= 'Z'){
+            hasUppercase = true;
+        }
+        else if(x >= 'a' && x <= 'z'){
+            hasLowercase = true;
+        }
+        else if (x >='0' && x <= '9'){
+            hasDigit = true;
+        }
+        else if (SpecialSymbols.includes(x)){
+            HasSpecialSymbols = true;
+        }
+    }
+
+    if (!hasLowercase || !hasUppercase || !hasDigit || !HasSpecialSymbols){
+        return false;
+    }
+    
+    if (hasLowercase || hasUppercase || hasDigit || HasSpecialSymbols){
+        return true;
+    }
+    
+    
+}
 
 form.addEventListener('submit', async (event)=>{
     event.preventDefault();
@@ -22,6 +54,20 @@ form.addEventListener('submit', async (event)=>{
         errorMessage.textContent = "Passwords Do Not Match!";
         return;
     }
+
+    const p = password.value;
+    if (p.length < 8){
+        errorMessage.style.display = "block";
+        errorMessage.textContent = "Password must be at least 8 characters long!";
+        return;
+    }
+
+    if (!isStrong(p)){
+        errorMessage.style.display = "block";
+        errorMessage.textContent = "Password is too weak. It must include at least one uppercase letter, one lowercase letter, one digit and one special symbol {'!','@','#','$','%','&','*}";
+        return;
+    }
+
 
     try{
         const response = await fetch('http://localhost:3000/do-register',{
