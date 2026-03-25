@@ -14,25 +14,17 @@
             <article>
                 <h1>Register</h1>
                 <p class="description">Create a new account to get started</p>
-                <form>
+                <form id="registration-form">
 
                     <section id="input-group">
-                        <label for="firstName">FIRST NAME</label>
+                        <label for="username">USERNAME</label>
                         <section class="input-wrapper">
                             <img src="../assets/user.svg" alt="user-icon" class="left-icon"/>
-                            <input type = "text" id="firstName" name="firstName" placeholder="Please enter your first name"/>
+                            <input type = "text" id="username" name="username" placeholder="Please enter your username"/>
 
                         </section>
                     </section>
 
-                    <section id="input-group">
-                        <label for="lastName">LAST NAME</label>
-                        <section class="input-wrapper">
-                            <img src="../assets/user.svg" alt="user-icon" class="left-icon"/>
-                            <input type = "text" id="lastName" name="lastName" placeholder="Please enter your last name" />
-
-                        </section>
-                    </section>
 
                     <section id="input-group">
                         <label for="email">EMAIL</label>
@@ -62,7 +54,6 @@
                         <section class="input-wrapper">
                             <img src="../assets/lock.svg" alt="lock-icon" class="left-icon" />
                             <input
-                                class="input-error"
                                 type="password"
                                 id="confirm-password"
                                 name="confirm-password"
@@ -72,7 +63,7 @@
                         </section>
                     </section>
 
-                    <p class="error-message">Please enter matching passwords.</p>
+                    <p class="error-message" id="error-message">Please enter matching passwords.</p>
                     <button type="submit" id="register-btn">Register</button>
                 </form>
                 <p class="redirect-text">
