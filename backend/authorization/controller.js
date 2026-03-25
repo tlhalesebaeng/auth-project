@@ -66,7 +66,7 @@ exports.doRegister = async (req,res) =>{
             return res.status(400).json({error : "Password length must be at least 8 characters long"});
         }
 
-        if (isStrong(password)){
+        if (!isStrong(password)){
             return res.status(400).json({error: "Password is too weak. It must include at least one uppercase letter, one lowercase letter, one digit and one special symbol {'!','@','#','$','%','&','*'}"});
         }
 
