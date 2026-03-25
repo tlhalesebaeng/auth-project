@@ -44,8 +44,7 @@ async function hashPassword(password){
 
 exports.doRegister = async (req,res) =>{
     try{
-        const username = req.body.firstName + " " + req.body.lastName;
-        const email = req.body.email;
+        const username = req.body.username;
         const password = req.body.password;
         const confirmPassword = req.body.confirmPassword;
 

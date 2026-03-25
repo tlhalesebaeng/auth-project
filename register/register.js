@@ -1,7 +1,6 @@
 const errorMessage = document.getElementById('error-message');
 const form = document.getElementById('registration-form');
-const firstName = document.getElementById('firstName');
-const lastName = document.getElementById('lastName');
+const username = document.getElementById('username');
 const email = document.getElementById('email');
 const confirmPassword = document.getElementById('confirm-password');
 const password = document.getElementById('new-password');
@@ -76,8 +75,7 @@ form.addEventListener('submit', async (event)=>{
                 'Content-Type':'application/json'
             },
             body: JSON.stringify({
-                firstName : firstName.value,
-                lastName: lastName.value,
+                username: username.value,
                 email : email.value,
                 password : password.value,
                 confirmPassword: confirmPassword.value
@@ -86,7 +84,7 @@ form.addEventListener('submit', async (event)=>{
 
         const data = await response.json();
         if (data.success){
-            alert(`${firstName.value} registered successfully` );
+            alert(`${username.value} registered successfully` );
             navigate('../login/login.html');
         }
         else{
