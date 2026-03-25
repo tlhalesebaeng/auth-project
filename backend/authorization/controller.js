@@ -86,3 +86,30 @@ exports.doRegister = async (req,res) =>{
     }
 };
 
+exports.login = async (req, res)=>{
+    try{
+        const email = req.body.email;
+        const password = req.body.password;
+
+        const user = await User.findOne({email: email.toLowerCase()});
+
+        if(!user){
+            return res.status(404).json({error: "User not found"});
+        }
+
+        const isMatching = await user.comparePassword(password);
+        
+        if(!isMatching){
+            return res.status(400).json({error: "Invalid credentials!"})
+        }
+        res.status(200).json({success: "User Logged in"});
+    }
+    catch(err){
+        console.log(err);
+        res.status(500).json({
+            success: false,
+            error: err.message
+        });
+    }
+}
+
