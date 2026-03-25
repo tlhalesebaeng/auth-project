@@ -35,7 +35,7 @@ function isStrong(password){
         return false;
     }
     
-    if (hasLowercase || hasUppercase || hasDigit || HasSpecialSymbols){
+    if (hasLowercase && hasUppercase && hasDigit && HasSpecialSymbols){
         return true;
     }
     
@@ -64,7 +64,7 @@ form.addEventListener('submit', async (event)=>{
 
     if (!isStrong(p)){
         errorMessage.style.display = "block";
-        errorMessage.textContent = "Password is too weak. It must include at least one uppercase letter, one lowercase letter, one digit and one special symbol {'!','@','#','$','%','&','*}";
+        errorMessage.textContent = "Password is too weak. It must include at least one uppercase letter, one lowercase letter, one digit and one special symbol {'!','@','#','$','%','&','*'}";
         return;
     }
 
