@@ -4,7 +4,7 @@ const errorMessage = document.getElementById('error-message');
 const form = document.getElementById('reset-password-form');
 const newPassword = document.getElementById('new-password');
 const confirmPassword = document.getElementById('confirm-password');
-const email = sessionStorage.getItem('email');
+const token = new URLSearchParams(window.location.search).get('token');
 
 errorMessage.style.display = "none";
 
@@ -69,8 +69,8 @@ form.addEventListener('submit', async (event)=>{
                 'Content-Type':'application/json'
             },
             body: JSON.stringify({
-                email : email,
-                password : newPassword.value,
+                token: token,
+                password: newPassword.value,
                 confirmPassword: confirmPassword.value
             })
         });
