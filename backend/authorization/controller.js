@@ -86,3 +86,68 @@ exports.doRegister = async (req,res) =>{
     }
 };
 
+exports.forgotPassword = async (req, res) => {
+    try {
+        const email = req.body.email?.trim().toLowerCase();
+
+        //validation rules
+        if (!email) {
+            return res.status(400).json({ error: "Email is required!" });
+        }
+
+        if (!email.includes('@')) {
+            return res.status(400).json({ error: "Invalid email!" });
+        }
+
+        //database querying
+        const user = await User.findOne({ email });
+
+        if (!user) {
+            //the email doesnt exist 
+            return res.status(400).json({ message: "If this email exists, a reset link has been sent" });
+        }
+
+        //generating token and expiry...the token needs an attribute in the user table.
+        const token = crypto.randomBytes(16).toString('hex');
+
+        user.resetToken = token;
+        user.resetTokenExpiry = Date.now() + 15 * 60 * 1000;
+        await user.save();
+
+        const resetUrl = `http://localhost:3000/reset-password.html?token=${token}`;
+
+        await transporter.sendMail({
+            from: '"MyApp" <your.email@gmail.com>',
+            to: email,
+            subject: "Password Reset",
+            //this is html of what the email sent will look like
+            html: `
+<h2>Password Reset</h2>
+
+<p>You requested a password reset.</p>
+
+<p>
+    <a href="${resetUrl}" 
+       style="background-color: blue;
+        color: white;
+        padding: 6px 10px;
+         text-decoration: none;">
+       Reset Password
+    </a>
+</p>
+
+<p><small>Expires in 15 minutes.</small></p>
+`
+
+        });
+
+        res.status(200).json({
+            message: "If this email exists, a reset link has been sent."
+        });
+
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: err.message });
+    }
+};
+
