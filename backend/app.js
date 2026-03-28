@@ -1,6 +1,8 @@
 const express = require('express');
 const cors = require('cors');
 const dotenv = require('dotenv');
+
+
 const connectDatabase = require('./common/database');
 const Routes = require('./authorization/routes');
 

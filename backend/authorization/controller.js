@@ -86,6 +86,60 @@ exports.doRegister = async (req,res) =>{
     }
 };
 
+
+exports.doResetPassword = async (req, res) => {
+    try {
+        const token = req.body.token;
+        const password = req.body.password;
+        const confirmPassword = req.body.confirmPassword;
+
+    //password validation
+    if (password !== confirmPassword){
+        return res.status(400).json({error: "Passwords do not match"});
+    }
+
+    if (password.length < 8){
+        return res.status(400).json({error: "Password length must be at least 8 characters long"});
+    }
+
+    if (!isStrong(password)){
+        return res.status(400).json({error: "Password is too weak. It must include at least one uppercase letter, one lowercase letter, one digit and one special symbol {'!','@','#','$','%','&','*'}"});
+    }
+
+    //database querying
+    const user = await User.findOne({resetToken: token});
+
+            if (!user) {
+                //email doesnt exist or token is invalid
+                return res.status(400).json({ message: "If this email exists, you have been redirected to the homepage" });
+            }
+
+    //check if the token has expired
+    if (user.resetTokenExpiry < Date.now()) {
+        return res.status(400).json({ error: "Reset token has expired. Please request a new one." });
+    }
+
+    //encrypt the new password and save it to the database, also remove the reset token and expiry  
+    const hashedPassword = await hashPassword(password);
+
+    user.password = hashedPassword;
+    user.resetToken = null;
+    user.resetTokenExpiry = null;
+    await user.save();
+    
+    //success response
+    res.status(200).json({ success: true });
+
+    } catch(err) {
+        console.log(err);
+        res.status(500).json({
+            success: false,
+            error: err.message
+        });
+    }
+};
+
+
 exports.forgotPassword = async (req, res) => {
     try {
         const email = req.body.email?.trim().toLowerCase();
