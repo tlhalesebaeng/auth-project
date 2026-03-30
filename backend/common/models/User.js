@@ -9,6 +9,9 @@ const userSchema =new Schema({
     password:{type:String, required:true},
     verified:{type: Boolean, default: false},
     created_at:{type: Date, default: Date.now},
+    //may be used for email verification and password reset(mufasa)
+    resetToken: { type: String },
+    resetTokenExpiry: { type: Date }
 });
 
 userSchema.methods.comparePassword = async function (password) {
