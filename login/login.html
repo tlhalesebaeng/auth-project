@@ -12,7 +12,7 @@
                 <h1>Login</h1>
                 <p class="description">
                     Please fill in your details to access your account
-                <form>
+                <form id="login-form">
                     <section id="input-group">
                         <label for="email">Email</label>
                         <section class="input-wrapper">
@@ -31,7 +31,7 @@
                             <img src="../assets/lock.svg" alt="lock-icon" class="left-icon" />
                             <input
                                 class="input-error"
-                                type="text"
+                                type="password"
                                 id="password"
                                 name="password"
                                 placeholder="Enter your password"
@@ -39,7 +39,7 @@
                             <img src="../assets/eye-off.svg" alt="toggle-visibility" class="right-icon" />
                         </section>
                     </section>
-                    <p class="error-message">Please enter the correct password.</p>
+                    <p id="error-message" class="error-message">Please enter the correct password.</p>
                     <section class="form-footer">
                         <label class="checkbox-wrapper">
                             <input type="checkbox" id="remember-me">
@@ -47,7 +47,7 @@
                         </label>
                         <a href="../reset-password/reset-password.html" class="forgot-password">Forgot Password</a>
                     </section>
-                    <button id="login-btn">Login</button>
+                    <button type="submit" id="login-btn">Login</button>
                     <p class="bottom-message">
                         Do you have an account?
                         <a href="../register/register.html" class="register-link">Register</a>

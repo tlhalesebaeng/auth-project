@@ -4,6 +4,7 @@ const controller = require('./controller');
 
 const router = express.Router();
 router.post('/do-register', controller.doRegister);
+router.post('/login', controller.login);
 
 //guys is routes.js supposed to be here?
 router.post('/forgot-password', controller.forgotPassword);
